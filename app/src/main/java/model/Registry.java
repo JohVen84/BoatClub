@@ -1,6 +1,7 @@
 package model;
 
 import com.thoughtworks.xstream.XStream;
+import model.Boat.BoatType;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public class Registry {
 	private FileHandler file;
 	private int memberID;
 	private XStream xstream;
+	private int size = 0;
 
 
 
@@ -35,6 +37,9 @@ public class Registry {
 			xstream = new XStream();
 		}
 
+		public int getSize() {
+		    return members.size();
+        }
 
 		/**
 		 * Adds a member to the register
@@ -73,20 +78,20 @@ public class Registry {
 		 * @param t - type
 		 * @param l - length
 		 */
-		public void addBoat(int id, String t, double l) {
+		public void addBoat(int id, BoatType t, double l) {
 			getMember(id).addBoat(t,l);
 		}
 
 		/**
 		 * Updated a current Boat
 		 * @param id
-		 * @param index
-		 * @param t - type
-		 * @param l - length
+		 * @param boatIndex
+		 * @param type
+		 * @param length
 		 */
-		public void updateBoat(int id, int index, String t, double l) {
-			getMember(id).getBoat(index).setType(t);
-			getMember(id).getBoat(index).setLength(l);
+		public void updateBoat(int id, int boatIndex, BoatType type, double length) {
+			getMember(id).getBoat(boatIndex).setType(type);
+			getMember(id).getBoat(boatIndex).setLength(length);
 		}
 
 		/**

@@ -86,7 +86,7 @@ public class Member {
 	 * Adds a boat to the member
 	 * @param type, length
 	 */
-	public void addBoat(String type, double length) {
+	public void addBoat(Boat.BoatType type, double length) {
 		boats.add(new Boat(type,length));
 	}
 

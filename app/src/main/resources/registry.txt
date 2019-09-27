@@ -1,8 +1,23 @@
 <list>
   <model.Member>
-    <name>kalle</name>
-    <pNumber>900202</pNumber>
+    <name>errtwr</name>
+    <pNumber>858585</pNumber>
     <idNumber>1</idNumber>
+    <boats>
+      <model.Boat>
+        <type>SAILBOAT</type>
+        <length>10.5</length>
+      </model.Boat>
+      <model.Boat>
+        <type>OTHER</type>
+        <length>10.5</length>
+      </model.Boat>
+    </boats>
+  </model.Member>
+  <model.Member>
+    <name>kol</name>
+    <pNumber>262353</pNumber>
+    <idNumber>2</idNumber>
     <boats/>
   </model.Member>
 </list>

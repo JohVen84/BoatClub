@@ -9,9 +9,12 @@ package model;
 
 public class Boat {
 
-	private String type;
+	private BoatType type;
 	private double length;
-	
+
+	public enum BoatType {
+		SAILBOAT, MOTORSAILER, KAYAK, CANOE, OTHER
+	}
 	
 	
 	
@@ -19,7 +22,7 @@ public class Boat {
 	 * @param type - Type of boat
 	 * @param l - Length of boat
 	 */
-	public Boat (String type, double l) {
+	public Boat (BoatType type, double l) {
 		setType(type);
 		setLength(l);
 	}
@@ -31,20 +34,14 @@ public Boat () {
 	/**Set the type of boat
 	 * @param t - type
 	 */
-	public void setType(String t) {
-		t = t.toUpperCase();
-		if(t.equals("SAILBOAT") || t.equals("MOTORSAILER")
-				|| t.equals("KAYAK/CANOE") || t.equals("OTHER")) {
+	public void setType(BoatType t) {
 			type = t;
-			}
-		else {
-			throw new IllegalArgumentException();
-		}
+
 	}
 	/**Get the boat type
 	 * @return
 	 */
-	public String getType() {
+	public BoatType getType() {
 		return type;
 	}
 

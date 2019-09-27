@@ -1,5 +1,6 @@
 package view;
 
+import model.Boat.BoatType;
 import model.Registry;
 
 import java.io.IOException;
@@ -8,17 +9,17 @@ import java.util.Scanner;
 public class Console {
 
     private Registry registry;
-    private Scanner scan = new Scanner(System.in);
-    private String input = "";
-    private String name;
-    private int pNumber = 0;
-    private int id = 0;
-    private double length = 0;
-    private String type = "";
-    private int boatId = 0;
+    private Scanner scan;
+    private String strInput = "";
+    private int intInput = 0;
+    private int intInput2 = 0;
+    private BoatType type;
+    private double doubleInput = 0.0;
+
 
     public Console(Registry r) {
         registry = r;
+        scan = new Scanner(System.in);
     }
 
     public void displayMainMenu() throws IOException {
@@ -30,46 +31,46 @@ public class Console {
         System.out.println("################");
         System.out.print("Input: ");
 
-        input = scan.next();
+        intInput = getIntInput();
 
-        switch (input) {
-            case ("1"):
+        switch (intInput) {
+            case (1):
                 displayMemberViewMenu();
                 break;
-            case ("2"):
+            case (2):
                 displayMemberManageMenu();
                 break;
-            case ("3"):
+            case (3):
                 saveFile();
                 System.exit(0);
             default:
-                System.out.println("Invalid input");
+                System.out.println("Invalid Input");
                 break;
         }
     }
 
     private void displayMemberViewMenu() throws IOException {
-        System.out.println("1 View comapct List");
-        System.out.println("2 View verbose List");
+        System.out.println("1 View a comapct List");
+        System.out.println("2 View a verbose List");
         System.out.println("3. Return to main menu");
         System.out.print("Input:");
 
-        input = scan.next();
+        intInput = getIntInput();
 
-        switch (input) {
-            case ("1"):
+        switch (intInput) {
+            case (1):
                 displayCompactList();
                 displayMemberViewMenu();
                 break;
-            case ("2"):
+            case (2):
                 displayVerboseList();
                 displayMemberViewMenu();
                 break;
-            case ("3"):
+            case (3):
                 displayMainMenu();
                 break;
             default:
-                System.out.println("Invalid input");
+                System.out.println("Invalid Input");
                 break;
         }
     }
@@ -87,133 +88,153 @@ public class Console {
         System.out.println("################");
         System.out.print("Input: ");
 
-        input = scan.next();
+        intInput = getIntInput();
 
-        switch (input) {
-            case ("1"):
+        switch (intInput) {
+            case (1):
                 addMember();
                 displayMemberManageMenu();
                 break;
-            case ("2"):
+            case (2):
                 updateMember();
                 displayMemberManageMenu();
                 break;
-            case ("3"):
+            case (3):
                 removeMember();
                 displayMemberManageMenu();
-            case ("4"):
+            case (4):
                 addBoat();
                 displayMemberManageMenu();
                 break;
-            case ("5"):
+            case (5):
                 updateBoat();
                 displayMemberManageMenu();
                 break;
-            case ("6"):
+            case (6):
                 removeBoat();
                 displayMemberManageMenu();
                 break;
-            case ("7"):
+            case (7):
                 searchMember();
                 displayMemberManageMenu();
                 break;
-            case ("8"):
+            case (8):
                 displayMainMenu();
                 break;
             default:
-                System.out.println("Invalid input");
+                System.out.println("Invalid Input");
                 break;
         }
     }
 
-    private void displayCompactList() {
-        for (model.Member m : registry.getList()) {
+  private void displayCompactList() {
+        if (registry.getSize() > 0) {
+          for (model.Member m : registry.getList()) {
             displayMember(m);
             System.out.println("-------------------------------------");
+          }
+        } else {
+          System.out.println("Register is empty");
         }
     }
 
-    private void displayVerboseList() {
-        for (model.Member m : registry.getList()) {
+  private void displayVerboseList() {
+        System.out.println("-------------------------------------");
+        if (registry.getSize() > 0) {
+          for (model.Member m : registry.getList()) {
             displayMember(m);
             displayBoats(m);
             System.out.println("-------------------------------------");
-            }
-    }
-
+          }
+        } else {
+          System.out.println("Register is empty");
+        }
+   }
     private void addMember() {
         System.out.print("Name: ");
-        name = scan.next() + scan.nextLine();
+        strInput = getStrInput();
 
         System.out.print("PersonNumber(yymmdd): ");
-        pNumber = scan.nextInt();
-        registry.addMember(name, pNumber);
+        intInput = getIntInput();
+        registry.addMember(strInput, intInput);
+        System.out.println("Member: " + strInput + " succesfully added!");
     }
 
     private void updateMember() {
         System.out.print("Member ID: ");
-        id = scan.nextInt();
+        intInput = getIntInput();
         System.out.print("New name: ");
-        name = scan.next() + scan.nextLine();
-        System.out.print("New Personal ID");
-        pNumber = scan.nextInt();
-        registry.updateMember(id, name, pNumber);
+        strInput = getStrInput();
+        System.out.print("New Personal Number: ");
+        intInput2 = getIntInput();
+        registry.updateMember(intInput, strInput, intInput2);
+        System.out.println("Member updated!");
     }
 
     private void removeMember() {
         System.out.print("Member ID: ");
-        id = scan.nextInt();
-        registry.deleteMember(id);
+        intInput = getIntInput();
+        registry.deleteMember(intInput);
+        System.out.println("Member removed!");
     }
 
     private void addBoat() {
         System.out.print("Member ID: ");
-        id = scan.nextInt();
-        System.out.print("Type: ");
-        type = scan.next();
+        intInput = getIntInput();
+        DisplayBoatTypes();
+        System.out.print("Type(Enter a number 1-5): ");
+        intInput2 = getIntInput();
+        type  = getBoatType(intInput2);
+        System.out.println(type.toString());
         System.out.print("Length: ");
-        length = scan.nextDouble();
+        doubleInput = getDoubleInput();
         try {
-            registry.addBoat(id, type, length);
+            registry.addBoat(intInput, type, doubleInput);
         } catch (Exception e) {
-            System.out.println("Wrong input, try again");
+            System.out.println("Wrong Input, try again");
         }
+        System.out.println("Boat added");
     }
 
     private void updateBoat() {
         System.out.print("Member ID: ");
-        id = scan.nextInt();
+        intInput = getIntInput();
+        DisplayBoatTypes();
+        System.out.print("Type(Enter a number 1-5): ");
+        intInput2 = getIntInput();
+        type = getBoatType(intInput2);
         System.out.print("Select boat(id): ");
-        boatId = scan.nextInt();
-        System.out.print("New type: ");
-        type = scan.next();
+        intInput2 = getIntInput();
         System.out.print("New length: ");
-        length = scan.nextDouble();
+        doubleInput = getDoubleInput();
         try {
-            registry.updateBoat(id, boatId, type, length);
+            registry.updateBoat(intInput, intInput2, type, doubleInput);
         } catch (Exception e) {
-            System.out.println("Wrong input, try again");
+            System.out.println("Wrong Input, try again");
         }
+        System.out.println("Boat updated");
     }
 
     private void removeBoat() {
         System.out.print("Member ID: ");
-        id = scan.nextInt();
+        intInput = getIntInput();
         System.out.print("Select boat(id):  ");
-        boatId = scan.nextInt();
-        registry.deleteBoat(id, boatId);
+        intInput2 = getIntInput();
+        registry.deleteBoat(intInput, intInput2);
+        System.out.println("Boat removed");
     }
 
     private void searchMember() {
         System.out.print("Member ID: ");
-        id = scan.nextInt();
-        displayMember(registry.getMember(id));
-        displayBoats(registry.getMember(id));
+        intInput = getIntInput();
+        displayMember(registry.getMember(intInput));
+        displayBoats(registry.getMember(intInput));
     }
 
     private void saveFile() throws IOException {
         registry.saveRegistry();
         System.out.println("Welcome back!");
+        scan.close();
     }
 
     private void displayMember(model.Member m) {
@@ -235,6 +256,29 @@ public class Console {
         } else {
             System.out.println("The member does not own any boats");
           }
+    }
+
+    private void DisplayBoatTypes() {
+        int i = 1;
+        for(BoatType type: BoatType.values()) {
+            System.out.print(i++ + ". " + type + ", ");
+        }
+        System.out.println();
+    }
+
+    private BoatType getBoatType(int index) {
+        return BoatType.values()[index - 1];
+    }
+
+    private String getStrInput() {
+        return scan.next() + scan.nextLine();
+    }
+
+    private int getIntInput() {
+        return scan.nextInt();
+    }
+    private double getDoubleInput() {
+        return scan.nextDouble();
     }
 
 }
