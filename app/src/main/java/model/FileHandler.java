@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class FileHandler {
 
     BufferedWriter writer;
-    private final String FILE_PATH = "registry.txt";
+    private final String FILE_PATH = "src/main/resources/registry.txt";
 
 
     public FileHandler (){

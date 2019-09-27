@@ -1,0 +1,8 @@
+<list>
+  <model.Member>
+    <name>kalle</name>
+    <pNumber>900202</pNumber>
+    <idNumber>1</idNumber>
+    <boats/>
+  </model.Member>
+</list>
