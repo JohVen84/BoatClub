@@ -1,70 +1,48 @@
 package model;
 
-
-
-/**Boat class creating the objects of Boats
- * @author johan
- *
- */
-
 public class Boat {
 
-	private BoatType type;
-	private double length;
+  private BoatType type;
+  private int id;
+  private double length;
 
-	public enum BoatType {
-		SAILBOAT, MOTORSAILER, KAYAK, CANOE, OTHER
-	}
-	
-	
-	
-	/**Constructors classes
-	 * @param type - Type of boat
-	 * @param l - Length of boat
-	 */
-	public Boat (BoatType type, double l) {
-		setType(type);
-		setLength(l);
-	}
-	
-public Boat () {
-		
-	}
+  public enum BoatType {
+    SAILBOAT,
+    MOTORSAILER,
+    KAYAK,
+    CANOE,
+    OTHER
+  }
 
-	/**Set the type of boat
-	 * @param t - type
-	 */
-	public void setType(BoatType t) {
-			type = t;
+  public Boat(BoatType type, double l, int boatID) {
+    id = boatID;
+    setType(type);
+    setLength(l);
+  }
 
-	}
-	/**Get the boat type
-	 * @return
-	 */
-	public BoatType getType() {
-		return type;
-	}
+  public Boat() {}
 
-	/**Set the length of boat
-	 * @param l - length
-	 */
-	public void setLength(double l) {
-		if(l > 0) {
-			length = l;
-		}
-		else {
-			throw new IllegalArgumentException();
-		}
-	}
+  public int getId() {
+    return id;
+  }
 
-	/**Get the length of boat
-	 * @return
-	 */
-	public double getLength() {
-		return length;
-	}
-	
-	
+  public void setType(BoatType t) {
+    type = t;
+  }
 
-	
+  public BoatType getType() {
+    return type;
+  }
+
+  public void setLength(double l) {
+    if (l > 0) {
+      length = l;
+    } else {
+      throw new IllegalArgumentException();
+    }
+  }
+
+  public double getLength() {
+    return length;
+  }
 }
