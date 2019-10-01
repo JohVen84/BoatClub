@@ -30,29 +30,10 @@ public class Registry {
     ++memberID;
   }
 
-  public void deleteMember(int id) {
-    members.remove(getMember(id));
+  public void deleteMember(Member m) {
+    members.remove(m);
   }
-
-  public void updateMember(int id, String name, int number) {
-    getMember(id).setName(name);
-    getMember(id).setPNumber(number);
-  }
-
-  public void addBoat(int id, BoatType t, double l) {
-    getMember(id).addBoat(t, l);
-  }
-
-  public void updateBoat(int id, int boatId, BoatType type, double length) {
-    getMember(id).getBoat(boatId).setType(type);
-    getMember(id).getBoat(boatId).setLength(length);
-  }
-
-  public void deleteBoat(int id, int boatId) {
-    getMember(id).removeBoat(boatId);
-  }
-
-  public Iterable<Member> getList() {
+    public Iterable<Member> getList() {
     return members;
   }
 

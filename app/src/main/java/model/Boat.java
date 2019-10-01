@@ -14,9 +14,9 @@ public class Boat {
     OTHER
   }
 
-  public Boat(BoatType type, double l, int boatID) {
+  public Boat(BoatType t, double l, int boatID) {
     id = boatID;
-    setType(type);
+    type = t;
     setLength(l);
   }
 
@@ -27,7 +27,7 @@ public class Boat {
   }
 
   public void setType(BoatType t) {
-    type = t;
+    this.type = t;
   }
 
   public BoatType getType() {
@@ -36,7 +36,7 @@ public class Boat {
 
   public void setLength(double l) {
     if (l > 0) {
-      length = l;
+      this.length = l;
     } else {
       throw new IllegalArgumentException();
     }

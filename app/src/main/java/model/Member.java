@@ -14,7 +14,7 @@ public class Member {
     name = n;
     pNumber = pN;
     idNumber = id;
-    boatID = 0;
+    boatID = 1;
     boats = new ArrayList<>();
   }
 
@@ -24,15 +24,11 @@ public class Member {
   }
 
   public void setName(String n) {
-    name = n;
+    this.name = n;
   }
 
   public int getId() {
     return idNumber;
-  }
-
-  public void setIdNumber(int n) {
-    idNumber = n;
   }
 
   public String getName() {
@@ -40,7 +36,7 @@ public class Member {
   }
 
   public void setPNumber(int number) {
-    pNumber = number;
+    this.pNumber = number;
   }
 
   public int getpNumber() {
@@ -48,12 +44,13 @@ public class Member {
   }
 
   public void addBoat(Boat.BoatType type, double length) {
-    boatID++;
     boats.add(new Boat(type, length, boatID));
+    boatID++;
+
   }
 
-  public void removeBoat(int boatId) {
-    boats.remove(getBoat(boatId));
+  public void removeBoat(Boat b) {
+    boats.remove(b);
   }
 
   public int getNumberOfBoats() {

@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f78e071e-7e9e-41aa-9417-b26a8b3b20ff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/app.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Program.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Boat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Boat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/FileHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Registry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Registry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Console.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/Console.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/registry.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/registry.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,6 +19,13 @@
   <component name="DefaultGradleProjectSettings">
     <option name="testRunner" value="GRADLE" />
     <option name="delegatedBuild" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -43,7 +46,9 @@
     </option>
   </component>
   <component name="ProjectId" id="1RTEez7n0mehGv9N3WZTTqvtE2U" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -97,7 +102,9 @@
       <workItem from="1569682803260" duration="445000" />
       <workItem from="1569836792537" duration="773000" />
       <workItem from="1569839561299" duration="2803000" />
-      <workItem from="1569869298605" duration="5133000" />
+      <workItem from="1569869298605" duration="5511000" />
+      <workItem from="1569923784876" duration="2500000" />
+      <workItem from="1569954113515" duration="5638000" />
     </task>
     <servers />
   </component>

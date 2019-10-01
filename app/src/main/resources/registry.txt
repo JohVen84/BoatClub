@@ -1,1 +1,15 @@
-<list/>
+<list>
+  <model.Member>
+    <name>kalle</name>
+    <pNumber>840842</pNumber>
+    <idNumber>1</idNumber>
+    <boatID>3</boatID>
+    <boats>
+      <model.Boat>
+        <type>KAYAK</type>
+        <id>1</id>
+        <length>78.0</length>
+      </model.Boat>
+    </boats>
+  </model.Member>
+</list>
