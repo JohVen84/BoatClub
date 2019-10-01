@@ -11,9 +11,10 @@ public class MainView {
 
   private Registry registry;
   private Scanner scan;
-  private String strInput = "";
-  private int intInput = 0;
-  private double doubleInput = 0.0;
+  private String name = "";
+  private int number = 0;
+  private double length = 0.0;
+  private int choice = 0;
 
   public MainView(Registry r) {
     registry = r;
@@ -32,9 +33,9 @@ public class MainView {
     System.out.println("################");
     System.out.print("Input(1-6): ");
 
-    intInput = getIntInput();
+    choice = getIntInput();
 
-    switch (intInput) {
+    switch(choice) {
       case (1):
         displayMemberViewMenu();
         break;
@@ -67,9 +68,9 @@ public class MainView {
     System.out.println("3. Return to main menu");
     System.out.print("Input:");
 
-    intInput = getIntInput();
+    choice = getIntInput();
 
-    switch (intInput) {
+    switch (choice) {
       case (1):
         displayCompactList();
         displayMemberViewMenu();
@@ -98,9 +99,9 @@ public class MainView {
     System.out.println("################");
     System.out.print("Input: ");
 
-    intInput = getIntInput();
+    choice = getIntInput();
 
-    switch (intInput) {
+    switch (choice) {
       case (1):
         updateMember(m);
         displayMemberManageMenu(m);
@@ -155,32 +156,32 @@ public class MainView {
 
   private void addMember() {
     System.out.print("Name: ");
-    strInput = getStrInput();
+    name = getStrInput();
     System.out.print("PersonNumber(yymmdd): ");
-    intInput = getIntInput();
-    registry.addMember(strInput, intInput);
-    System.out.println("Member: " + strInput + " succesfully added!");
+    number = getIntInput();
+    registry.addMember(name, number);
+    System.out.println("Member: " + name + " succesfully added!");
   }
 
   private Member selectMember() {
     System.out.print("Enter member ID: ");
-    intInput = getIntInput();
-    return registry.getMember(intInput);
+    number = getIntInput();
+    return registry.getMember(number);
   }
 
   private Boat selectBoat(Member m) {
     System.out.print("Enter boat ID: ");
-    intInput = getIntInput();
-    return m.getBoat(intInput);
+    number = getIntInput();
+    return m.getBoat(number);
   }
 
   private void updateMember(Member m) {
     System.out.print("New name: ");
-    strInput = getStrInput();
+    name = getStrInput();
     System.out.print("New Personal Number: ");
-    intInput = getIntInput();
-    m.setName(strInput);
-    m.setPNumber(intInput);
+    number = getIntInput();
+    m.setName(name);
+    m.setPNumber(number);
     System.out.println("Member updated!");
   }
 
@@ -192,11 +193,11 @@ public class MainView {
   private void addBoat(Member m) {
     DisplayBoatTypes();
     System.out.print("Type(Enter a number 1-5): ");
-    intInput = getIntInput();
+    number = getIntInput();
     System.out.print("Length: ");
-    doubleInput = getDoubleInput();
+    length = getDoubleInput();
     try {
-      m.addBoat(getBoatType(intInput), doubleInput);
+      m.addBoat(getBoatType(number), length);
     } catch (Exception e) {
       System.out.println("Wrong Input, try again");
     }
@@ -208,12 +209,12 @@ public class MainView {
     Boat b = selectBoat(m);
     DisplayBoatTypes();
     System.out.print("Type(Enter a number 1-5): ");
-    intInput = getIntInput();
-    type = getBoatType(intInput);
+    number = getIntInput();
+    type = getBoatType(number);
     System.out.print("New length: ");
-    doubleInput = getDoubleInput();
+    length = getDoubleInput();
     try {
-      b.setLength(doubleInput);
+      b.setLength(length);
       b.setType(type);
     } catch (Exception e) {
       System.out.println("Wrong Input, try again");
@@ -228,9 +229,9 @@ public class MainView {
 
   private void searchMember() {
     System.out.print("Member ID: ");
-    intInput = getIntInput();
-    displayMember(registry.getMember(intInput));
-    displayBoats(registry.getMember(intInput));
+    number = getIntInput();
+    displayMember(registry.getMember(number));
+    displayBoats(registry.getMember(number));
   }
 
   private void saveFile() throws IOException {
